@@ -1,0 +1,76 @@
+package negocio;
+
+import apresentacao.Apresentacao;
+import apresentacao.Tela;
+import apresentacao.Terminal;
+
+public class Jogo {
+
+	private Jogador jogador;
+	private Apresentacao gui;
+	private int numeroSorteado;
+	private boolean jogando;
+
+
+	public Jogo() {
+		this.jogador = new Jogador();
+		this.numeroSorteado = 50;
+		this.jogando = true;
+		
+	}
+
+	public void iniciarJogoTerminal() {
+		this.gui = new Terminal();
+		
+		this.jogar();
+		
+	}
+
+	public void iniciarJogoGUI() {
+		this.gui = new Tela();
+		
+		this.jogar();
+		
+	}
+
+	private void solicitarNumero() {
+		String temporario = this.gui.entradaDados("Informe um numero:");
+		
+		try {
+			int numeroApostado = Integer.parseInt(temporario);
+			
+			this.jogador.setUltimoNumeroApostado(numeroApostado);
+			
+		} catch (Exception e) {
+			this.jogador.setUltimoNumeroApostado(-1);
+		}
+		
+	}
+
+	public void jogar() {
+	
+		this.gui.mensagem("Bem vindo ao jogo de acertar o número!");
+		
+		this.jogador.setNome(this.gui.entradaDados("Qual o seu nome?"));
+		this.gui.mensagem("Seja bem vindo: " + jogador.getNome());
+		
+		while (this.jogando) {
+			this.solicitarNumero();
+		}
+		
+	}
+
+	private void fimDoJogo() {
+	}
+
+	private boolean verificarMenor(int numero) {
+//		if (numero < numeroEscolhido)
+//			return true;
+
+		return false;
+	}
+
+	private void verificarAcerto() {
+//		return 
+	}
+}
