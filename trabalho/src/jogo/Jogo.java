@@ -6,10 +6,10 @@ import java.util.Scanner;
 import plano.Plano;
 
 public class Jogo {
-	public String nomeJogador;
-	public Scanner scanner;
-	public Plano plano;
-	public boolean estaRodando;
+	private String nomeJogador;
+	private Scanner scanner;
+	private Plano plano;
+	private boolean estaRodando;
 	
 	public void setup() {
 		this.scanner = new Scanner(System.in);

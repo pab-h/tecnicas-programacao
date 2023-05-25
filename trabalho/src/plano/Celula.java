@@ -5,45 +5,81 @@ import robos.RoboAbstrato;
 import alunos.Aluno;
 
 import bugs.Bug;
+import metadata.Entidade;
 
 import java.util.ArrayList;
 
 public class Celula {
 
-	public int id;
-	public int x;
-	public int y;
+	private int linha;
+	private int coluna;
 	
-	public ArrayList<RoboAbstrato> robos;	
-	public Aluno aluno;
-	public Bug bug;
+	private ArrayList<Entidade> entidades;
+	private ArrayList<RoboAbstrato> robos;	
+	private Aluno aluno;
+	private Bug bug;
 	
-	public Celula(int id, int x , int y) {
-		this.id = id;
-
-		this.x = x;
-		this.y = y;
+	public Celula(int linha , int coluna) {
+		this.linha = linha;
+		this.coluna = coluna;
 		
 		this.robos = new ArrayList<RoboAbstrato>();
+		this.entidades = new ArrayList<Entidade>();
+		
+	}
+	
+	public boolean temBug() {
+		return this.bug != null;
+	}
+	
+	public boolean temAluno() {
+		return this.aluno != null;
+	}
+	
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
+		this.entidades.add(aluno);
+		
+	}
+	
+	public void unsetAluno() {
+		this.entidades.remove(this.aluno);
+		this.aluno = null;
+	}
+	
+	public int getLinha() {
+		return this.linha;
+	}
+	
+	public int getColuna() {
+		return this.coluna;
+	}
+	
+	public void setRobo(RoboAbstrato robo) {
+		if (!this.robos.contains(robo)) {
+			this.robos.add(robo);
+			this.entidades.add(robo);
+		}
+		
+	}
+	
+	public void unsetRobo(RoboAbstrato robo) {
+		if (this.robos.contains(robo)) {
+			this.robos.remove(robo);
+			this.entidades.remove(robo);
+		}
+		
 	}
 	
 	public String toString() {
 		String out = "";
 		
-		for (RoboAbstrato roboAbstrato : this.robos) {
-			out += roboAbstrato;
+		if (this.entidades.size() == 0) {
+			out = "0";
 		}
 		
-		if (this.aluno != null) {
-			out += "A";
-		}
-		
-		if (this.bug != null) {
-			out += "B";
-		}
-		
-		if (out == "") {
-			out += "0";
+		for (Entidade entidade : entidades) {
+			out += entidade;
 		}
 		
 		return out;

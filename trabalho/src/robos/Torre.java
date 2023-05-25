@@ -1,14 +1,40 @@
 package robos;
 
+import plano.Celula;
+import plano.Plano;
+
 public class Torre extends RoboAbstrato {
 
+	public Torre(Plano plano, Celula celulaAtual) {
+		super("T", "Torre", plano, celulaAtual, 2);
+
+	}
+
 	public void avancar() {
-		// TODO Auto-generated method stub
+		Celula celulaAtual = this.getCelulaAtual();	
+		
+		this.mover(celulaAtual.getLinha(), celulaAtual.getColuna() + 1);
+		
+	}
+	
+	public void avancar(int n) {
+		for (int i = 0; i < n; i ++) {
+			this.avancar();
+		}
 		
 	}
 
 	public void retroceder() {
-		// TODO Auto-generated method stub
+		Celula celulaAtual = this.getCelulaAtual();	
+		
+		this.mover(celulaAtual.getLinha(), celulaAtual.getColuna() - 1);
+		
+	}
+	
+	public void retroceder(int n ) {
+		for (int i = 0; i < n; i ++) {
+			this.retroceder();
+		}
 		
 	}
 

@@ -1,8 +1,0 @@
-package apresentacao;
-
-public abstract class Apresentacao {
-	public abstract void mesagem(String msg);
-	
-	public String entradaDados(String msg);
-	
-}
