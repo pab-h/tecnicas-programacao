@@ -6,7 +6,7 @@ import plano.Plano;
 public class Torre extends RoboAbstrato {
 
 	public Torre(Plano plano, Celula celulaAtual) {
-		super("T", "Torre", plano, celulaAtual, 2);
+		super("♜", "Torre", plano, celulaAtual, 2);
 
 	}
 

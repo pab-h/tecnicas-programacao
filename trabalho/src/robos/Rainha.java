@@ -6,7 +6,7 @@ import plano.Plano;
 public class Rainha extends RoboAbstrato {
 
 	public Rainha(Plano plano, Celula celulaAtual) {
-		super("R", "Rainha", plano, celulaAtual, 4);
+		super("♛", "Rainha", plano, celulaAtual, 4);
 		
 	}
 	

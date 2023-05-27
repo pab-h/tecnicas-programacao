@@ -6,7 +6,7 @@ import plano.Plano;
 public class Cavalo extends RoboAbstrato {
 
 	public Cavalo(Plano plano, Celula celulaAtual) {
-		super("C", "Cavalo", plano, celulaAtual, 2);
+		super("♞", "Cavalo", plano, celulaAtual, 2);
 		
 	}
 	

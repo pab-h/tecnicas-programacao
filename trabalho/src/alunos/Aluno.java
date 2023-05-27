@@ -6,7 +6,7 @@ import plano.Celula;
 public class Aluno extends Entidade {
 
 	public Aluno(Celula celulaAtual) {
-		super("a", celulaAtual);
+		super("😰", celulaAtual);
 		this.getCelulaAtual().setAluno(this);
 
 	}

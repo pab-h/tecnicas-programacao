@@ -6,7 +6,7 @@ import plano.Plano;
 public class Andador extends RoboAbstrato {
 
 	public Andador(Plano plano, Celula celulaAtual) {
-		super("A", "Andador", plano, celulaAtual, Integer.MAX_VALUE);
+		super("®", "Andador", plano, celulaAtual, Integer.MAX_VALUE);
 		
 	}
 	
