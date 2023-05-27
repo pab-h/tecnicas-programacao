@@ -13,12 +13,15 @@ public class Bispo extends RoboAbstrato {
 	public void avancar() {
 		Celula celulaAtual = this.getCelulaAtual();	
 		
-		this.mover(celulaAtual.getLinha() - 1, celulaAtual.getColuna());
+		this.mover(celulaAtual.getLinha() - 1, celulaAtual.getColuna() + 1);
 		
 	}
-
+	
+ 
 	public void retroceder() {
-		// TODO Auto-generated method stub
+		Celula celulaAtual = this.getCelulaAtual();	
+		
+		this.mover(celulaAtual.getLinha() + 1, celulaAtual.getColuna() - 1);
 		
 	}
 

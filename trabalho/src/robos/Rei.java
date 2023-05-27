@@ -1,21 +1,26 @@
 package robos;
 
 import plano.Celula;
+import plano.Plano;
 
 public class Rei extends RoboAbstrato {
 
-	public Rei(Celula celulaAtual) {
-		super('R', celulaAtual);
+	public Rei(Plano plano, Celula celulaAtual) {
+		super("R", "Rei", plano, celulaAtual, Integer.MAX_VALUE);
 		
 	}
 	
 	public void avancar() {
-		// TODO Auto-generated method stub
+		Celula celulaAtual = this.getCelulaAtual();	
+		
+		this.mover(celulaAtual.getLinha(), celulaAtual.getColuna() + 1);
 		
 	}
-
+	
 	public void retroceder() {
-		// TODO Auto-generated method stub
+		Celula celulaAtual = this.getCelulaAtual();	
+		
+		this.mover(celulaAtual.getLinha(), celulaAtual.getColuna() - 1);
 		
 	}
 

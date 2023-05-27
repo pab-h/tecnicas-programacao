@@ -84,6 +84,20 @@ public abstract class RoboAbstrato extends Entidade implements Movivel {
 	
 	public abstract void avancar();
 	
+	public void avancar(int n) {
+		for (int i = 0; i < n; i++) {
+			this.avancar();
+		}
+		
+	}
+	
 	public abstract void retroceder();
+	
+	public void retroceder(int n) {
+		for (int i = 0; i < n; i++) {
+			this.retroceder();
+		}
+		
+	}
 	
 }

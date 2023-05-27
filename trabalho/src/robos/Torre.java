@@ -13,14 +13,7 @@ public class Torre extends RoboAbstrato {
 	public void avancar() {
 		Celula celulaAtual = this.getCelulaAtual();	
 		
-		this.mover(celulaAtual.getLinha(), celulaAtual.getColuna() + 1);
-		
-	}
-	
-	public void avancar(int n) {
-		for (int i = 0; i < n; i ++) {
-			this.avancar();
-		}
+		this.mover(celulaAtual.getLinha(), celulaAtual.getColuna() - 1);
 		
 	}
 
@@ -28,13 +21,6 @@ public class Torre extends RoboAbstrato {
 		Celula celulaAtual = this.getCelulaAtual();	
 		
 		this.mover(celulaAtual.getLinha(), celulaAtual.getColuna() - 1);
-		
-	}
-	
-	public void retroceder(int n ) {
-		for (int i = 0; i < n; i ++) {
-			this.retroceder();
-		}
 		
 	}
 

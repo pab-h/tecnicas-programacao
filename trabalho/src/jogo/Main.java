@@ -3,7 +3,10 @@ package jogo;
 import alunos.Aluno;
 import plano.Plano;
 import robos.Andador;
+import robos.Bispo;
+import robos.Cavalo;
 import robos.Peao;
+import robos.Rainha;
 
 public class Main {
 
@@ -12,7 +15,7 @@ public class Main {
 		Plano plano = new Plano(4, 4);
 		
 		Aluno aluno = new Aluno(plano.getCelula(0, 0));
-		Peao robo = new Peao(plano, plano.getCelula(1, 0));
+		Cavalo robo = new Cavalo(plano, plano.getCelula(1, 1));
 		
 		System.out.println(plano);
 		robo.avancar();

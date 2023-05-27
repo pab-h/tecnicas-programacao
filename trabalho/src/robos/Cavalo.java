@@ -1,21 +1,26 @@
 package robos;
 
 import plano.Celula;
+import plano.Plano;
 
 public class Cavalo extends RoboAbstrato {
 
-	public Cavalo(Celula celulaAtual) {
-		super('C', celulaAtual);
+	public Cavalo(Plano plano, Celula celulaAtual) {
+		super("C", "Cavalo", plano, celulaAtual, 2);
 		
 	}
 	
 	public void avancar() {
-		// TODO Auto-generated method stub
+		Celula celulaAtual = this.getCelulaAtual();	
+		
+		this.mover(celulaAtual.getLinha() + 1, celulaAtual.getColuna() + 1);
 		
 	}
-
+	
 	public void retroceder() {
-		// TODO Auto-generated method stub
+		Celula celulaAtual = this.getCelulaAtual();	
+		
+		this.mover(celulaAtual.getLinha() - 1, celulaAtual.getColuna() - 1);
 		
 	}
 

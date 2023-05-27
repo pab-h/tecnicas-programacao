@@ -17,24 +17,11 @@ public class Andador extends RoboAbstrato {
 		
 	}
 	
-	public void avancar(int n) {
-		for (int i = 0; i < n; i++) {
-			this.avancar();
-		}
-		
-	}
  
 	public void retroceder() {
 		Celula celulaAtual = this.getCelulaAtual();	
 		
 		this.mover(celulaAtual.getLinha() + 1, celulaAtual.getColuna());
-		
-	}
-
-	public void retroceder(int n) {
-		for (int i = 0; i < n; i++) {
-			this.retroceder();
-		}
 		
 	}
 	
