@@ -13,13 +13,13 @@ public class Cavalo extends RoboAbstrato {
 	public boolean avancar() {
 		Celula celulaAtual = this.getCelulaAtual();	
 		
-		return this.mover(celulaAtual.getLinha() + 1, celulaAtual.getColuna() + 1);
+		return this.mover(celulaAtual.getLinha() - 1, celulaAtual.getColuna() - 1);
 	}
 	
 	public boolean retroceder() {
 		Celula celulaAtual = this.getCelulaAtual();	
 		
-		return this.mover(celulaAtual.getLinha() - 1, celulaAtual.getColuna() - 1);
+		return this.mover(celulaAtual.getLinha() + 1, celulaAtual.getColuna() + 1);
 	}
 
 }

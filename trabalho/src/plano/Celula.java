@@ -77,7 +77,7 @@ public class Celula {
 	public String toString() {
 		String out = "";
 		
-		if (this.temRobo() && temBug()) {
+		if (this.temBug()) {
 			out = this.bug.toString();
 		}
 		
@@ -89,7 +89,7 @@ public class Celula {
 			out += robo;
 		}
 		
-		if (!this.temRobo() && !this.temAluno()) {
+		if (!this.temRobo() && !this.temAluno() && !this.temBug()) {
 			out = "🥦";
 		}
 		

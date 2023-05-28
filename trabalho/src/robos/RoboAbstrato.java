@@ -52,7 +52,7 @@ public abstract class RoboAbstrato extends Entidade implements Movivel {
 			
 			return true;
 			
-		} catch (ArrayIndexOutOfBoundsException e) {
+		} catch (Exception e) {
 			return false;
 		}
 	}
@@ -68,6 +68,10 @@ public abstract class RoboAbstrato extends Entidade implements Movivel {
 		this.getCelulaAtual().unsetAluno();
 		this.alunosRegastados++;
 		
+	}
+	
+	public int getMaximoMovimento() {
+		return this.maximoMovimento;
 	}
 	
 	public Plano getPlano() {

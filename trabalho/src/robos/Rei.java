@@ -6,7 +6,7 @@ import plano.Plano;
 public class Rei extends RoboAbstrato {
 
 	public Rei(Plano plano, Celula celulaAtual) {
-		super("♚", "Rei", plano, celulaAtual, Integer.MAX_VALUE);
+		super("♚", "Rei", plano, celulaAtual, 4);
 		
 	}
 	

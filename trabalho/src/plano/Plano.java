@@ -3,9 +3,9 @@ package plano;
 import java.util.ArrayList;
 
 public class Plano {
-	public int linhas;
-	public int colunas;
-	public ArrayList<ArrayList<Celula>> celulas;
+	private int linhas;
+	private int colunas;
+	private ArrayList<ArrayList<Celula>> celulas;
 
 	public Plano(int linhas, int colunas) {
 		this.linhas = linhas;
