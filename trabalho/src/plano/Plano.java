@@ -3,26 +3,34 @@ package plano;
 import java.util.ArrayList;
 
 public class Plano {
-	public int largura;
-	public int altura;
+	public int linhas;
+	public int colunas;
 	public ArrayList<ArrayList<Celula>> celulas;
 
-	public Plano(int largura, int altura) {
-		this.largura = largura;
-		this.altura = altura;
+	public Plano(int linhas, int colunas) {
+		this.linhas = linhas;
+		this.colunas = colunas;
 		
 		this.celulas = new ArrayList<ArrayList<Celula>>();
 		
-		for(int i = 0; i < largura; i ++) {
+		for(int i = 0; i < this.linhas; i ++) {
 			ArrayList<Celula> tmp = new ArrayList<Celula>();
 			
-			for(int j = 0; j < altura; j++) {
+			for(int j = 0; j < this.colunas; j++) {
 				tmp.add(new Celula(i, j));
 				
 			}
 			
 			this.celulas.add(tmp);
 		}
+	}
+	
+	public int getLinhas() {
+		return this.linhas;
+	}
+	
+	public int getColunas() {
+		return this.colunas;
 	}
 	
 	public Celula getCelula(int linha, int coluna) throws ArrayIndexOutOfBoundsException {

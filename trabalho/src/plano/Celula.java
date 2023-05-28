@@ -14,7 +14,6 @@ public class Celula {
 	private int linha;
 	private int coluna;
 	
-	private ArrayList<Entidade> entidades;
 	private ArrayList<RoboAbstrato> robos;	
 	private Aluno aluno;
 	private Bug bug;
@@ -24,12 +23,20 @@ public class Celula {
 		this.coluna = coluna;
 		
 		this.robos = new ArrayList<RoboAbstrato>();
-		this.entidades = new ArrayList<Entidade>();
 		
+	}
+	
+	public boolean temRobo() {
+		return this.robos.size() > 0;
 	}
 	
 	public boolean temBug() {
 		return this.bug != null;
+	}
+	
+	public void setBug(Bug bug) {
+		this.bug = bug;
+		
 	}
 	
 	public boolean temAluno() {
@@ -38,12 +45,10 @@ public class Celula {
 	
 	public void setAluno(Aluno aluno) {
 		this.aluno = aluno;
-		this.entidades.add(aluno);
 		
 	}
 	
 	public void unsetAluno() {
-		this.entidades.remove(this.aluno);
 		this.aluno = null;
 	}
 	
@@ -58,7 +63,6 @@ public class Celula {
 	public void setRobo(RoboAbstrato robo) {
 		if (!this.robos.contains(robo)) {
 			this.robos.add(robo);
-			this.entidades.add(robo);
 		}
 		
 	}
@@ -66,7 +70,6 @@ public class Celula {
 	public void unsetRobo(RoboAbstrato robo) {
 		if (this.robos.contains(robo)) {
 			this.robos.remove(robo);
-			this.entidades.remove(robo);
 		}
 		
 	}
@@ -74,12 +77,20 @@ public class Celula {
 	public String toString() {
 		String out = "";
 		
-		if (this.entidades.size() == 0) {
-			out = "0";
+		if (this.temRobo() && temBug()) {
+			out = this.bug.toString();
 		}
 		
-		for (Entidade entidade : entidades) {
-			out += entidade;
+		if (this.temAluno()) {
+			out = this.aluno.toString();
+		}
+		
+		for (RoboAbstrato robo : this.robos) {
+			out += robo;
+		}
+		
+		if (!this.temRobo() && !this.temAluno()) {
+			out = "🥦";
 		}
 		
 		return out;

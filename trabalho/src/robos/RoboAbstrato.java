@@ -59,12 +59,14 @@ public abstract class RoboAbstrato extends Entidade implements Movivel {
 	
 	private void penalizarse() {
 		this.pontuacao -= 15;
+		this.bugsEncontrados++;
 		
 	}
 	
 	private void resgatarAluno() {
 		this.pontuacao += 10;
 		this.getCelulaAtual().unsetAluno();
+		this.alunosRegastados++;
 		
 	}
 	
@@ -80,12 +82,16 @@ public abstract class RoboAbstrato extends Entidade implements Movivel {
 		return this.pontuacao;
 	}
 	
-	public int getAlunosRegastados() {
-		return this.pontuacao;
+	public int getAlunosResgatados() {
+		return this.alunosRegastados;
 	}
 	
 	public int getBugsEncontrados() {
-		return this.pontuacao;
+		return this.bugsEncontrados;
+	}
+	
+	public ArrayList<Celula> getCelulasVisitadas() {
+		return this.celulasVisitadas;
 	}
 	
 	public abstract boolean avancar();
