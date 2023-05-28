@@ -164,7 +164,7 @@ public class Jogo {
 
 		RoboAbstrato melhorRobo = this.getMelhorRobo();
 		
-		relatorio += "\nMelhor robô: " + melhorRobo.getNome() + " [" + melhorRobo.getPontuacao() + "]" + "\n";
+		relatorio += "\n"+ this.jogador +", o melhor é robô: " + melhorRobo.getNome() + " com " + melhorRobo.getPontuacao() + " pontos" + "\n";
 		relatorio += "==================\n";
 		
 		return relatorio;
