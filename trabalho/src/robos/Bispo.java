@@ -10,19 +10,17 @@ public class Bispo extends RoboAbstrato {
 		
 	}
 	
-	public void avancar() {
+	public boolean avancar() {
 		Celula celulaAtual = this.getCelulaAtual();	
 		
-		this.mover(celulaAtual.getLinha() - 1, celulaAtual.getColuna() + 1);
-		
+		return this.mover(celulaAtual.getLinha() - 1, celulaAtual.getColuna() + 1);
 	}
 	
  
-	public void retroceder() {
+	public boolean retroceder() {
 		Celula celulaAtual = this.getCelulaAtual();	
 		
-		this.mover(celulaAtual.getLinha() + 1, celulaAtual.getColuna() - 1);
-		
+		return this.mover(celulaAtual.getLinha() + 1, celulaAtual.getColuna() - 1);
 	}
 
 }

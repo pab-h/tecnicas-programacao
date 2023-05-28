@@ -2,8 +2,8 @@ package metadata;
 
 public interface Movivel {
 	
-	public void avancar();
+	public boolean avancar();
 	
-	public void retroceder();
+	public boolean retroceder();
 
 }

@@ -25,7 +25,7 @@ public class Plano {
 		}
 	}
 	
-	public Celula getCelula(int linha, int coluna) {
+	public Celula getCelula(int linha, int coluna) throws ArrayIndexOutOfBoundsException {
 		return this.celulas.get(linha).get(coluna);
 	}
 

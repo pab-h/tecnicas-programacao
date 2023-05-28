@@ -10,19 +10,17 @@ public class Rainha extends RoboAbstrato {
 		
 	}
 	
-	public void avancar() {
+	public boolean avancar() {
 		Celula celulaAtual = this.getCelulaAtual();	
 		
-		this.mover(celulaAtual.getLinha() - 1, celulaAtual.getColuna());
-		
+		return this.mover(celulaAtual.getLinha() - 1, celulaAtual.getColuna());
 	}
 	
  
-	public void retroceder() {
+	public boolean retroceder() {
 		Celula celulaAtual = this.getCelulaAtual();	
 		
-		this.mover(celulaAtual.getLinha() + 1, celulaAtual.getColuna());
-		
+		return this.mover(celulaAtual.getLinha() + 1, celulaAtual.getColuna());
 	}
 
 }

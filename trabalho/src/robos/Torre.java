@@ -10,18 +10,16 @@ public class Torre extends RoboAbstrato {
 
 	}
 
-	public void avancar() {
+	public boolean avancar() {
 		Celula celulaAtual = this.getCelulaAtual();	
 		
-		this.mover(celulaAtual.getLinha(), celulaAtual.getColuna() - 1);
-		
+		return this.mover(celulaAtual.getLinha(), celulaAtual.getColuna() - 1);
 	}
 
-	public void retroceder() {
+	public boolean retroceder() {
 		Celula celulaAtual = this.getCelulaAtual();	
 		
-		this.mover(celulaAtual.getLinha(), celulaAtual.getColuna() - 1);
-		
+		return this.mover(celulaAtual.getLinha(), celulaAtual.getColuna() - 1);
 	}
 
 }

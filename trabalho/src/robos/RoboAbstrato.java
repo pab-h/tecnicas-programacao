@@ -33,22 +33,28 @@ public abstract class RoboAbstrato extends Entidade implements Movivel {
 		
 	}
 	
-	public void mover(int linha, int coluna) {
-		Celula destino = this.getPlano().getCelula(linha, coluna);
-		
-		this.getCelulaAtual().unsetRobo(this);
-		destino.setRobo(this);
-		this.setCelulaAtual(destino);
-		this.celulasVisitadas.add(destino);
-		
-		if (this.getCelulaAtual().temAluno()) {
-			this.resgatarAluno();
+	public boolean mover(int linha, int coluna) {
+		try {
+			Celula destino = this.getPlano().getCelula(linha, coluna);
+			
+			this.getCelulaAtual().unsetRobo(this);
+			destino.setRobo(this);
+			this.setCelulaAtual(destino);
+			this.celulasVisitadas.add(destino);
+			
+			if (this.getCelulaAtual().temAluno()) {
+				this.resgatarAluno();
+			}
+			
+			if (this.getCelulaAtual().temBug()) {
+				this.penalizarse();
+			}
+			
+			return true;
+			
+		} catch (ArrayIndexOutOfBoundsException e) {
+			return false;
 		}
-		
-		if (this.getCelulaAtual().temBug()) {
-			this.penalizarse();
-		}
-		
 	}
 	
 	private void penalizarse() {
@@ -82,21 +88,36 @@ public abstract class RoboAbstrato extends Entidade implements Movivel {
 		return this.pontuacao;
 	}
 	
-	public abstract void avancar();
+	public abstract boolean avancar();
 	
-	public void avancar(int n) {
-		for (int i = 0; i < n; i++) {
-			this.avancar();
+	public boolean avancar(int passos) {
+		if (passos > this.maximoMovimento) {
+			return false;
+		}
+ 		
+		for (int i = 0; i < passos; i++) {
+			if (!this.avancar()) {
+				return false;
+			}
 		}
 		
+		return true;
 	}
 	
-	public abstract void retroceder();
+	public abstract boolean retroceder();
 	
-	public void retroceder(int n) {
-		for (int i = 0; i < n; i++) {
-			this.retroceder();
+	public boolean retroceder(int passos) {
+		if (passos > this.maximoMovimento) {
+			return false;
 		}
+		
+		for (int i = 0; i < passos; i++) {
+			if (!this.retroceder()) {
+				return false;
+			}
+		}
+		
+		return true;
 		
 	}
 	
