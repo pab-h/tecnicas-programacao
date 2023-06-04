@@ -25,7 +25,7 @@ public class Jogo {
 	private Plano plano;
 	private ArrayList<RoboAbstrato> robos;
 	private int quantidadeAlunos;
-	
+
 	public Jogo() {
 		this.scanner = new Scanner(System.in);
 		

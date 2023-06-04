@@ -5,7 +5,6 @@ import robos.RoboAbstrato;
 import alunos.Aluno;
 
 import bugs.Bug;
-import metadata.Entidade;
 
 import java.util.ArrayList;
 
