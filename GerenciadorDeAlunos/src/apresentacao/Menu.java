@@ -25,7 +25,11 @@ public class Menu extends JPanel {
 		this.add(cadastrarButton);
 		
 		
-		this.add(new JButton("listar"));
+		JButton listarButton = new JButton("listar");
+		
+		listarButton.addActionListener(new ActionClickListar());
+		
+		this.add(listarButton);
 
 		
 		JButton atualizarButton = new JButton("atualizar");
@@ -64,6 +68,14 @@ public class Menu extends JPanel {
 		
 		public void actionPerformed(ActionEvent evento) {
 			conteudo.setConteudoDeletar();
+		}
+		
+	}
+	
+	private class ActionClickListar implements ActionListener {
+		
+		public void actionPerformed(ActionEvent evento) {
+			conteudo.setConteudoListar();
 		}
 		
 	}
