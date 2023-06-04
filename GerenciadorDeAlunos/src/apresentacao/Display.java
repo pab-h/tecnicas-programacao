@@ -11,8 +11,8 @@ public class Display extends JFrame {
 
 		this.setTitle("Gerenciador de alunos");
 		this.setSize(600, 600);
-
 		this.setLayout(new GridLayout(2, 1));
+		this.setResizable(false);
 		
 		Conteudo conteudo = new Conteudo();
 		
