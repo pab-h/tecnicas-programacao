@@ -1,13 +1,15 @@
 package apresentacao;
 
 import javax.swing.JPanel;
-import javax.swing.BorderFactory;
+
+import apresentacao.eventos.ActionClickAtualizar;
+import apresentacao.eventos.ActionClickCadastrar;
+import apresentacao.eventos.ActionClickDeletar;
+import apresentacao.eventos.ActionClickListar;
+
 import javax.swing.JButton;
 
-import java.awt.Color;
 import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Menu extends JPanel {
 	
@@ -22,63 +24,30 @@ public class Menu extends JPanel {
 		
 		JButton cadastrarButton = new JButton("cadastrar");
 		
-		cadastrarButton.addActionListener(new ActionClickCadastrar());
+		cadastrarButton.addActionListener(new ActionClickCadastrar(this.conteudo));
 		
 		this.add(cadastrarButton);
 		
 		
 		JButton listarButton = new JButton("listar");
 		
-		listarButton.addActionListener(new ActionClickListar());
+		listarButton.addActionListener(new ActionClickListar(this.conteudo));
 		
 		this.add(listarButton);
 
 		
 		JButton atualizarButton = new JButton("atualizar");
 		
-		atualizarButton.addActionListener(new ActionClickAtualizar());
+		atualizarButton.addActionListener(new ActionClickAtualizar(this.conteudo));
 		
 		this.add(atualizarButton);
 		
 		
 		JButton deletarButton = new JButton("deletar");
 		
-		deletarButton.addActionListener(new ActionClickDeletar());
+		deletarButton.addActionListener(new ActionClickDeletar(this.conteudo));
 		
 		this.add(deletarButton);
-		
-	}
-	
-	
-	private class ActionClickCadastrar implements ActionListener {
-		
-		public void actionPerformed(ActionEvent evento) {
-			conteudo.setConteudoCadastrar();
-		}
-		
-	}
-	
-	private class ActionClickAtualizar implements ActionListener {
-		
-		public void actionPerformed(ActionEvent evento) {
-			conteudo.setConteudoAtualizar();
-		}
-		
-	}
-	
-	private class ActionClickDeletar implements ActionListener {
-		
-		public void actionPerformed(ActionEvent evento) {
-			conteudo.setConteudoDeletar();
-		}
-		
-	}
-	
-	private class ActionClickListar implements ActionListener {
-		
-		public void actionPerformed(ActionEvent evento) {
-			conteudo.setConteudoListar();
-		}
 		
 	}
 	

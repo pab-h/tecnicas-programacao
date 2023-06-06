@@ -7,10 +7,12 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import apresentacao.conteudos.eventos.ActionClickDeletar;
+
 public class Deletar extends JPanel {
 	
 	public Deletar() {
-		this.setLayout(new GridLayout(2, 1));
+		this.setLayout(new GridLayout(2, 1, 0, 10));
 
 		this.add(new Campo("Matrícula: "));
 		
@@ -19,16 +21,6 @@ public class Deletar extends JPanel {
 		deletarButton.addActionListener(new ActionClickDeletar());
 		
 		this.add(deletarButton);
-		
-		
-	}
-	
-	
-	private class ActionClickDeletar implements ActionListener {
-		
-		public void actionPerformed(ActionEvent evento) {
-			System.out.println("Deletar Aluno");
-		}
 		
 	}
 	
