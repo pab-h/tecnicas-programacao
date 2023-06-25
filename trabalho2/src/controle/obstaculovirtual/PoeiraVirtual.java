@@ -1,9 +1,16 @@
 package controle.obstaculovirtual;
 
+import controle.tabuleirovirtual.CelulaVirtual;
+
 public class PoeiraVirtual extends ObstaculoVirtual {
 
-	public PoeiraVirtual() {
-		super("./midia/poeira.png");
+	public PoeiraVirtual(CelulaVirtual celulaVirtualAtual) {
+		super("./midia/poeira.png", celulaVirtualAtual);
 	}
 
+	@Override
+	public int getPontuacao() {
+		return 10;
+	}
+	
 }

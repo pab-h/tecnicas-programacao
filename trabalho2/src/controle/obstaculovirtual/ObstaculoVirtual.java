@@ -1,11 +1,16 @@
 package controle.obstaculovirtual;
 
+import controle.tabuleirovirtual.CelulaVirtual;
+
 public abstract class ObstaculoVirtual {
 	
 	private String imagem;
 	
-	public ObstaculoVirtual(String imagem) {
+	private CelulaVirtual celulaVirtualAtual;
+	
+	public ObstaculoVirtual(String imagem, CelulaVirtual celulaVirtualAtual) {
 		this.imagem = imagem;
+		this.celulaVirtualAtual = celulaVirtualAtual;
 	}
 
 	public String getImagem() {
@@ -14,6 +19,10 @@ public abstract class ObstaculoVirtual {
 
 	public int getPontuacao() {
 		return 0;
+	}
+	
+	public CelulaVirtual getCelulaVirtualAtual() {
+		return this.celulaVirtualAtual;
 	}
 	
 }
