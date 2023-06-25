@@ -1,11 +1,13 @@
 package controle;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import controle.aspiradorvirtual.AspiradorVirtual;
-
+import controle.obstaculovirtual.AlunoVirtual;
 import controle.obstaculovirtual.ObstaculoVirtual;
-
+import controle.obstaculovirtual.PoeiraVirtual;
+import controle.tabuleirovirtual.CelulaVirtual;
 import controle.tabuleirovirtual.TabuleiroVirtual;
 
 public final class Jogo {
@@ -26,8 +28,62 @@ public final class Jogo {
 		this.alunosAchados = 0;
 		this.poeirasAchadas = 0;
 		this.tabuleiroVirtual = new TabuleiroVirtual(8, 8);
+		
+		this.adicionaAlunoVirtualSorteado(10);
+		this.adicionaPoeiraVirtualSorteado(15);
+		
 	}
 
+	private void adicionaAlunoVirtualSorteado(int quantidade) {
+		for(int i = 0; i < quantidade; i ++) {
+			this.adicionaAlunoVirtualSorteado();
+		}
+		
+	}
+	
+	private void adicionaAlunoVirtualSorteado() {
+		Random random = new Random();
+	
+		int linha_sorteada = random.nextInt(this.tabuleiroVirtual.getLinhas());
+		int coluna_sorteada = random.nextInt(this.tabuleiroVirtual.getColunas());
+	
+		CelulaVirtual celulaVirtualSorteada = this.tabuleiroVirtual
+			.getCelulaVirtual(linha_sorteada, coluna_sorteada);
+		
+		try {
+			new AlunoVirtual(celulaVirtualSorteada);
+			
+		} catch (Exception e) {
+			this.adicionaAlunoVirtualSorteado();
+		}
+
+	}
+	
+	private void adicionaPoeiraVirtualSorteado(int quantidade) {
+		for(int i = 0; i < quantidade; i ++) {
+			this.adicionaPoeiraVirtualSorteado();
+		}
+		
+	}
+	
+	private void adicionaPoeiraVirtualSorteado() {
+		Random random = new Random();
+	
+		int linha_sorteada = random.nextInt(this.tabuleiroVirtual.getLinhas());
+		int coluna_sorteada = random.nextInt(this.tabuleiroVirtual.getColunas());
+	
+		CelulaVirtual celulaVirtualSorteada = this.tabuleiroVirtual
+			.getCelulaVirtual(linha_sorteada, coluna_sorteada);
+		
+		try {
+			new PoeiraVirtual(celulaVirtualSorteada);
+			
+		} catch (Exception e) {
+			this.adicionaPoeiraVirtualSorteado();
+		}
+
+	}
+	
 	public Jogador getJogador() {
 		return this.jogador;
 	}

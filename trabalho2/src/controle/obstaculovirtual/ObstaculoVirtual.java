@@ -8,9 +8,14 @@ public abstract class ObstaculoVirtual {
 	
 	private CelulaVirtual celulaVirtualAtual;
 	
-	public ObstaculoVirtual(String imagem, CelulaVirtual celulaVirtualAtual) {
+	public ObstaculoVirtual(String imagem, CelulaVirtual celulaVirtualAtual) throws Exception {
 		this.imagem = imagem;
 		this.celulaVirtualAtual = celulaVirtualAtual;
+		
+		if (!celulaVirtualAtual.estaVazia()) {
+			throw new Exception("Celula Virutal esta ocupada");
+		}
+		
 	}
 
 	public String getImagem() {

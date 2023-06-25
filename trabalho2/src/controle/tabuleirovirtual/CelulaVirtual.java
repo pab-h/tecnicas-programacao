@@ -16,6 +16,9 @@ public final class CelulaVirtual {
 		this.linha = linha;
 		this.coluna = coluna;
 		this.celulaVisitada = false;
+		this.aspiradorVirtual = null;
+		this.obstaculo = null;
+		
 	}
 
 	public int getLinha() {
@@ -25,5 +28,10 @@ public final class CelulaVirtual {
 	public int getColuna() {
 		return this.coluna;
 	}
+	
+	public boolean estaVazia() {
+		return this.obstaculo == null;
+	}
+	
 	
 }

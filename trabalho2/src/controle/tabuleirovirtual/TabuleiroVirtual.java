@@ -25,6 +25,10 @@ public final class TabuleiroVirtual {
 		
 	}
 
+	public CelulaVirtual getCelulaVirtual(int linha, int coluna) {
+		return this.getCelulasVirtuais().get(linha).get(coluna);
+	}
+	
 	public int getLinhas() {
 		return this.linhas;
 	}
