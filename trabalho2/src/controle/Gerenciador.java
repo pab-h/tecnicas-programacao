@@ -10,7 +10,7 @@ import controle.obstaculovirtual.PoeiraVirtual;
 import controle.tabuleirovirtual.CelulaVirtual;
 import controle.tabuleirovirtual.TabuleiroVirtual;
 
-public final class Jogo {
+public final class Gerenciador {
 
 	private Jogador jogador;
 	private ArrayList<AspiradorVirtual> aspiradoresVirtuais;
@@ -20,7 +20,7 @@ public final class Jogo {
 	private int alunosAchados;
 	private int poeirasAchadas;
 	
-	public Jogo() {
+	public Gerenciador() {
 		this.jogador = null;
 		this.aspiradoresVirtuais = new ArrayList<AspiradorVirtual>();
 		this.obstaculosVirtuais = new ArrayList<ObstaculoVirtual>();
