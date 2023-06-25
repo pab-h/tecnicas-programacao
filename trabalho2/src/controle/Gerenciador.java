@@ -34,6 +34,10 @@ public final class Gerenciador {
 		
 	}
 
+	public TabuleiroVirtual getTabuleiroVirtual() {
+		return this.tabuleiroVirtual;
+	}
+	
 	private void adicionaAlunoVirtualSorteado(int quantidade) {
 		for(int i = 0; i < quantidade; i ++) {
 			this.adicionaAlunoVirtualSorteado();

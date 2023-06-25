@@ -13,7 +13,7 @@ public class Tela extends JFrame {
 	public Tela(Gerenciador gerenciador) {
 		this.setLayout(new BorderLayout());
 		
-		JogoContainer jogoContainer = new JogoContainer();
+		JogoContainer jogoContainer = new JogoContainer(gerenciador);
 		this.add(jogoContainer, BorderLayout.CENTER);
 		
 		this.add(new MenuTopo(gerenciador, jogoContainer), BorderLayout.NORTH);
