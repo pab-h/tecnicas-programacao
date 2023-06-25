@@ -2,7 +2,7 @@ package controle.tabuleirovirtual;
 
 import java.util.ArrayList;
 
-public class TabuleiroVirtual {
+public final class TabuleiroVirtual {
 
 	private int linhas;
 	private int colunas;

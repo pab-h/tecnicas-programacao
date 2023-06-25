@@ -2,7 +2,9 @@ package controle.tabuleirovirtual;
 
 import controle.aspiradorvirtual.AspiradorVirtual;
 
-public class CelulaVirtual {
+import controle.obstaculovirtual.Obstaculo;
+
+public final class CelulaVirtual {
 	
 	private int linha;
 	private int coluna;
