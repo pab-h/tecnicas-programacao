@@ -1,6 +1,6 @@
 package controle.obstaculovirtual;
 
-public final class AlunoVirtual extends Obstaculo {
+public final class AlunoVirtual extends ObstaculoVirtual {
 
 	public AlunoVirtual() {
 		super("./midia/aluno.png");

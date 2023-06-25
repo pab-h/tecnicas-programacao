@@ -1,10 +1,10 @@
 package controle.obstaculovirtual;
 
-public abstract class Obstaculo {
+public abstract class ObstaculoVirtual {
 	
 	private String imagem;
 	
-	public Obstaculo(String imagem) {
+	public ObstaculoVirtual(String imagem) {
 		this.imagem = imagem;
 	}
 

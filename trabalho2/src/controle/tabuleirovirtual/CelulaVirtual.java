@@ -2,14 +2,14 @@ package controle.tabuleirovirtual;
 
 import controle.aspiradorvirtual.AspiradorVirtual;
 
-import controle.obstaculovirtual.Obstaculo;
+import controle.obstaculovirtual.ObstaculoVirtual;
 
 public final class CelulaVirtual {
 	
 	private int linha;
 	private int coluna;
 	private AspiradorVirtual aspiradorVirtual;
-	private Obstaculo obstaculo;
+	private ObstaculoVirtual obstaculo;
 	private boolean celulaVisitada;
 	
 	public CelulaVirtual(int linha, int coluna) {
