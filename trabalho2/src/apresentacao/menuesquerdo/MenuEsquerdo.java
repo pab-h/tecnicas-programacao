@@ -7,6 +7,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import apresentacao.menuesquerdo.aspiradoropcoes.AspiradoresOpcoes;
+
 public class MenuEsquerdo extends JPanel {
 
 	public MenuEsquerdo() {
@@ -15,6 +17,8 @@ public class MenuEsquerdo extends JPanel {
 		JLabel pontuacaoLabel = new JLabel("-100");
 		pontuacaoLabel.setFont(new Font("Roboto Mono", Font.BOLD, 50));
 		this.add(pontuacaoLabel);
+		
+		this.add(new AspiradoresOpcoes());
 		
 		JButton proximaRodadaButton = new JButton("Proxima Rodada");
 		this.add(proximaRodadaButton);
