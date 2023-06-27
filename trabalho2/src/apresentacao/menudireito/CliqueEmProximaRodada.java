@@ -3,21 +3,27 @@ package apresentacao.menudireito;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JLabel;
+
+import apresentacao.Icone;
 import apresentacao.tabuleiro.Celula;
 import apresentacao.tabuleiro.Tabuleiro;
 
 import controle.Gerenciador;
 import controle.aspiradorvirtual.AspiradorVirtual;
+import controle.obstaculovirtual.ObstaculoVirtual;
 import controle.tabuleirovirtual.CelulaVirtual;
 
 public class CliqueEmProximaRodada implements ActionListener {
 
 	private Gerenciador gerenciador;
 	private Tabuleiro tabuleiro;
-
-	public CliqueEmProximaRodada(Gerenciador gerenciador, Tabuleiro tabuleiro) {
+	private JLabel pontuacaoJLabel;
+	
+	public CliqueEmProximaRodada(Gerenciador gerenciador, Tabuleiro tabuleiro, JLabel pontuacaoJLabel) {
 		this.gerenciador = gerenciador;
 		this.tabuleiro = tabuleiro;
+		this.pontuacaoJLabel = pontuacaoJLabel;
 	}
 	
 	private void apagarIconesDosAspiradores() {
@@ -34,8 +40,41 @@ public class CliqueEmProximaRodada implements ActionListener {
 		}
 	}
 	
+	public void atualizarPontuacao() {
+		int pontuacaoTotal = 0;
+		
+		for(AspiradorVirtual aspiradorVirtual: this.gerenciador.getAspiradoresVirtuais()) {
+			pontuacaoTotal += aspiradorVirtual.getPontuacao();
+		}
+		
+		this.pontuacaoJLabel.setText(""+ pontuacaoTotal + "");
+		
+	}
+	
+	public void mostrarIconesObstaculosNosAspiradores() {
+		for(AspiradorVirtual aspiradorVirtual: this.gerenciador.getAspiradoresVirtuais()) {
+			CelulaVirtual celulaVirutal = aspiradorVirtual.getCelulaVirtualAtual();
+			
+			if (!celulaVirutal.semObstaculo()) {
+				Celula celula = this.tabuleiro.getCelula(
+					celulaVirutal.getLinha(), 
+					celulaVirutal.getColuna()
+				);
+
+				ObstaculoVirtual obstaculoVirtual = celulaVirutal.getObstaculoVirtual(); 
+				
+				Icone iconeObstaculo = new Icone(obstaculoVirtual.getImagem());
+				
+				celula.setIcon(iconeObstaculo.getIcon(50, 50));
+				
+			}
+		}
+	}
+	
 	public void actionPerformed(ActionEvent e) {
 		this.apagarIconesDosAspiradores();
+		this.mostrarIconesObstaculosNosAspiradores();
+		this.atualizarPontuacao();
 	}
 	
 }

@@ -36,7 +36,7 @@ public abstract class AspiradorVirtual {
 			return;
 		}
 		
-		if (!this.celulaVirtualAtual.estaVazia()) {
+		if (!this.celulaVirtualAtual.semObstaculo()) {
 			ObstaculoVirtual obstaculoVirtual = this.celulaVirtualAtual.getObstaculoVirtual();
 		
 			this.setPontuacao(this.getPontuacao() + obstaculoVirtual.getPontuacao());

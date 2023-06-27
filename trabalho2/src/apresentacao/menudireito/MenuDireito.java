@@ -18,7 +18,7 @@ public class MenuDireito extends JPanel {
 	public MenuDireito(Gerenciador gerenciador, Tabuleiro tabuleiro) {
 		this.setLayout(new GridLayout(6, 1));
 		
-		JLabel pontuacaoLabel = new JLabel("-100", SwingConstants.CENTER);
+		JLabel pontuacaoLabel = new JLabel("0", SwingConstants.CENTER);
 		pontuacaoLabel.setFont(new Font("Roboto Mono", Font.BOLD, 50));
 		this.add(pontuacaoLabel);
 		
@@ -28,7 +28,8 @@ public class MenuDireito extends JPanel {
 		JButton proximaRodadaButton = new JButton("Proxima Rodada");
 		proximaRodadaButton.addActionListener(new CliqueEmProximaRodada(
 			gerenciador, 
-			tabuleiro
+			tabuleiro,
+			pontuacaoLabel
 		));
 		this.add(proximaRodadaButton);
 		

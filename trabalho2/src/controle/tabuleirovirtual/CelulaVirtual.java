@@ -10,12 +10,10 @@ public final class CelulaVirtual {
 	private int coluna;
 	private AspiradorVirtual aspiradorVirtual;
 	private ObstaculoVirtual obstaculoVirtual;
-	private boolean celulaVisitada;
 	
 	public CelulaVirtual(int linha, int coluna) {
 		this.linha = linha;
 		this.coluna = coluna;
-		this.celulaVisitada = false;
 		this.aspiradorVirtual = null;
 		this.obstaculoVirtual = null;
 		
@@ -29,7 +27,7 @@ public final class CelulaVirtual {
 		return this.coluna;
 	}
 	
-	public boolean estaVazia() {
+	public boolean semObstaculo() {
 		return this.obstaculoVirtual == null;
 	}
 	
@@ -43,10 +41,6 @@ public final class CelulaVirtual {
 	
 	public void setObstaculoVirtual(ObstaculoVirtual obstaculoVirtual) {
 		this.obstaculoVirtual = obstaculoVirtual;
-	}
-	
-	public void setCelulaVisitada() {
-		this.celulaVisitada = true;
 	}
 	
 }

@@ -12,9 +12,11 @@ public abstract class ObstaculoVirtual {
 		this.imagem = imagem;
 		this.celulaVirtualAtual = celulaVirtualAtual;
 		
-		if (!celulaVirtualAtual.estaVazia()) {
+		if (!celulaVirtualAtual.semObstaculo()) {
 			throw new Exception("Celula Virutal esta ocupada");
 		}
+		
+		this.celulaVirtualAtual.setObstaculoVirtual(this);
 		
 	}
 
