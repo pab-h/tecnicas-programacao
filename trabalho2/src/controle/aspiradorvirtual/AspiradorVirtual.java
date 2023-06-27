@@ -1,6 +1,8 @@
 package controle.aspiradorvirtual;
 
+import controle.obstaculovirtual.AlunoVirtual;
 import controle.obstaculovirtual.ObstaculoVirtual;
+import controle.obstaculovirtual.PoeiraVirtual;
 import controle.tabuleirovirtual.CelulaVirtual;
 
 public abstract class AspiradorVirtual {
@@ -8,6 +10,9 @@ public abstract class AspiradorVirtual {
 	private String imagem;
 	private String nome;
 	private int pontuacao;
+	private int poeirasEncontradas;
+	private int alunosEncontrados;
+	
 	private CelulaVirtual celulaVirtualAtual;
 	
 	public AspiradorVirtual(String imagem, String nome) {
@@ -15,12 +20,22 @@ public abstract class AspiradorVirtual {
 		this.nome = nome;
 		this.pontuacao = 0;
 		this.celulaVirtualAtual = null;
+		this.poeirasEncontradas = 0;
+		this.alunosEncontrados = 0;
 	}
 
 	public int getPontuacao() {
 		return this.pontuacao;
 	}
 
+	public int getPoeirasEncontradas() {
+		return this.poeirasEncontradas;
+	}
+	
+	public int getAlunosEncontrados() {
+		return this.alunosEncontrados;
+	}
+	
 	public void setPontuacao(int pontuacao) {
 		this.pontuacao = pontuacao;
 	}
@@ -39,7 +54,18 @@ public abstract class AspiradorVirtual {
 		if (!this.celulaVirtualAtual.semObstaculo()) {
 			ObstaculoVirtual obstaculoVirtual = this.celulaVirtualAtual.getObstaculoVirtual();
 			this.setPontuacao(this.getPontuacao() + obstaculoVirtual.getPontuacao());
+			
+			if (obstaculoVirtual instanceof AlunoVirtual) {
+				this.alunosEncontrados++;
+			}
+			
+			if (obstaculoVirtual instanceof PoeiraVirtual) {
+				this.poeirasEncontradas++;
+			}
+			
 		}		
+		
+		
 		
 	}
 

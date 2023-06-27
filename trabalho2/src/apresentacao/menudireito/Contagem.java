@@ -7,12 +7,12 @@ import javax.swing.JPanel;
 
 import apresentacao.Icone;
 
-public class PlacarEncontrados extends JPanel {
+public class Contagem extends JPanel {
 
 	private JLabel alunosEncontradosJLabel;
 	private JLabel poeirasEncontradasJLabel;
 	
-	public PlacarEncontrados() {
+	public Contagem() {
 		this.setLayout(new FlowLayout());
 		
 		Icone iconeAluno = new Icone("./midia/aluno.png");
@@ -31,7 +31,14 @@ public class PlacarEncontrados extends JPanel {
 		
 		this.add(this.poeirasEncontradasJLabel);
 		
-		
+	}
+	
+	public JLabel getAlunosEncontradosJLabel() {
+		return this.alunosEncontradosJLabel;
+	}
+	
+	public JLabel getPoeirasEncontradasJLabel() {
+		return this.poeirasEncontradasJLabel;
 	}
 	
 }

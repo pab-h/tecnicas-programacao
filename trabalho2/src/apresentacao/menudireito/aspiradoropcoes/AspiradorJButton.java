@@ -5,7 +5,7 @@ import javax.swing.JButton;
 import controle.Gerenciador;
 import controle.aspiradorvirtual.AspiradorVirtual;
 
-class AspiradorJButton extends JButton {
+public class AspiradorJButton extends JButton {
 	
 	private AspiradorVirtual aspiradorVirtual;
 	

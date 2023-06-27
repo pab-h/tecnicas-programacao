@@ -3,11 +3,12 @@ package apresentacao.menudireito;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.concurrent.TimeUnit;
 
 import javax.swing.JLabel;
 
 import apresentacao.Icone;
+import apresentacao.menudireito.aspiradoropcoes.AspiradorJButton;
+import apresentacao.menudireito.aspiradoropcoes.AspiradoresOpcoes;
 import apresentacao.tabuleiro.Celula;
 import apresentacao.tabuleiro.Tabuleiro;
 
@@ -21,11 +22,15 @@ public class CliqueEmProximaRodada implements ActionListener {
 	private Gerenciador gerenciador;
 	private Tabuleiro tabuleiro;
 	private JLabel pontuacaoJLabel;
+	private Contagem contagem;
+	private AspiradoresOpcoes aspiradoresOpcoes;
 	
-	public CliqueEmProximaRodada(Gerenciador gerenciador, Tabuleiro tabuleiro, JLabel pontuacaoJLabel) {
+	public CliqueEmProximaRodada(Gerenciador gerenciador, Tabuleiro tabuleiro, JLabel pontuacaoJLabel, Contagem contagem, AspiradoresOpcoes aspiradoresOpcoes) {
 		this.gerenciador = gerenciador;
 		this.tabuleiro = tabuleiro;
 		this.pontuacaoJLabel = pontuacaoJLabel;
+		this.contagem = contagem;
+		this.aspiradoresOpcoes = aspiradoresOpcoes;
 	}
 	
 	private void apagarIconesDosAspiradores() {
@@ -42,18 +47,8 @@ public class CliqueEmProximaRodada implements ActionListener {
 		}
 	}
 	
-	public void atualizarPontuacao() {
-		int pontuacaoTotal = 0;
-		
-		for(AspiradorVirtual aspiradorVirtual: this.gerenciador.getAspiradoresVirtuais()) {
-			pontuacaoTotal += aspiradorVirtual.getPontuacao();
-		}
-		
-		this.pontuacaoJLabel.setText(""+ pontuacaoTotal + "");
-		
-	}
 	
-	public void mostrarIconesObstaculosNosAspiradores() {
+	private void mostrarIconesObstaculosNosAspiradores() {
 		for(AspiradorVirtual aspiradorVirtual: this.gerenciador.getAspiradoresVirtuais()) {
 			CelulaVirtual celulaVirutal = aspiradorVirtual.getCelulaVirtualAtual();
 			
@@ -73,7 +68,7 @@ public class CliqueEmProximaRodada implements ActionListener {
 		}
 	}
 	
-	public void marcarCelulaComObstaculosNosAspiradores() {
+	private void marcarCelulaComObstaculosNosAspiradores() {
 		for(AspiradorVirtual aspiradorVirtual: this.gerenciador.getAspiradoresVirtuais()) {
 			CelulaVirtual celulaVirutal = aspiradorVirtual.getCelulaVirtualAtual();
 			
@@ -88,12 +83,57 @@ public class CliqueEmProximaRodada implements ActionListener {
 		}
 	}
 	
+	private void atualizarPontuacao() {
+		int pontuacaoTotal = 0;
+		
+		for(AspiradorVirtual aspiradorVirtual: this.gerenciador.getAspiradoresVirtuais()) {
+			pontuacaoTotal += aspiradorVirtual.getPontuacao();
+		}
+		
+		this.pontuacaoJLabel.setText(""+ pontuacaoTotal + "");
+		
+	}
+	
+	private void atualizarContagem() {
+		int totalPoeirasEncontradas = 0;
+		
+		for(AspiradorVirtual aspiradorVirtual: this.gerenciador.getAspiradoresVirtuais()) {
+			totalPoeirasEncontradas += aspiradorVirtual.getPoeirasEncontradas();
+		}
+		
+		this.contagem.getPoeirasEncontradasJLabel().setText("" + totalPoeirasEncontradas  + "");
+		
+		int totalAlunosEncontrados = 0;
+
+		for(AspiradorVirtual aspiradorVirtual: this.gerenciador.getAspiradoresVirtuais()) {
+			totalAlunosEncontrados += aspiradorVirtual.getAlunosEncontrados();
+		}
+		
+		this.contagem.getAlunosEncontradosJLabel().setText("" + totalAlunosEncontrados  + "");
+		
+	}
+	
+	public void habilitarBotoesDosAspiradores() {
+		for(AspiradorVirtual aspiradorVirtual: this.gerenciador.getAspiradoresVirtuais()) {
+			CelulaVirtual celulaVirtual = aspiradorVirtual.getCelulaVirtualAtual();
+			
+			celulaVirtual.setAspiradorVirtual(null);
+			aspiradorVirtual.setCelulaVirtualAtual(null);
+		}
+		
+		for(AspiradorJButton aspiradorJButton: this.aspiradoresOpcoes.getOpcoesJButton()) {
+			aspiradorJButton.setEnabled(true);
+		}
+		
+	}
 	
 	public void actionPerformed(ActionEvent e) {
 		this.apagarIconesDosAspiradores();
 		this.mostrarIconesObstaculosNosAspiradores();
 		this.marcarCelulaComObstaculosNosAspiradores();
 		this.atualizarPontuacao();
+		this.atualizarContagem();
+		this.habilitarBotoesDosAspiradores();
 	}
 	
 }

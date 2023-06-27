@@ -22,14 +22,20 @@ public class MenuDireito extends JPanel {
 		pontuacaoLabel.setFont(new Font("Roboto Mono", Font.BOLD, 50));
 		this.add(pontuacaoLabel);
 		
-		this.add(new AspiradoresOpcoes(gerenciador));
-		this.add(new PlacarEncontrados());
+		AspiradoresOpcoes aspiradoresOpcoes = new AspiradoresOpcoes(gerenciador);
+		this.add(aspiradoresOpcoes);
+		
+		Contagem contagem = new Contagem(); 
+		this.add(contagem);
 		
 		JButton proximaRodadaButton = new JButton("Proxima Rodada");
 		proximaRodadaButton.addActionListener(new CliqueEmProximaRodada(
 			gerenciador, 
 			tabuleiro,
-			pontuacaoLabel
+			pontuacaoLabel,
+			contagem,
+			aspiradoresOpcoes
+			
 		));
 		this.add(proximaRodadaButton);
 		
