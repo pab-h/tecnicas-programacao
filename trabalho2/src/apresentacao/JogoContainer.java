@@ -15,7 +15,7 @@ public class JogoContainer extends JPanel {
 		this.setLayout(new BorderLayout());
 		
 		this.add(new Tabuleiro(gerenciador), BorderLayout.CENTER);
-		this.add(new MenuDireito(), BorderLayout.EAST);
+		this.add(new MenuDireito(gerenciador), BorderLayout.EAST);
 		
 		this.setVisible(false);
 	}

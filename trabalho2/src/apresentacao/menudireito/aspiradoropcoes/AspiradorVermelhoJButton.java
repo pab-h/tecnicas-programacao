@@ -2,18 +2,18 @@ package apresentacao.menudireito.aspiradoropcoes;
 
 import javax.swing.JButton;
 
+import controle.Gerenciador;
 import controle.aspiradorvirtual.AspiradorVirtualVermelho;
 
 import apresentacao.Icone;
 
-public class AspiradorVermelhoJButton extends JButton{
+public class AspiradorVermelhoJButton extends AspiradorJButton {
 
-	private AspiradorVirtualVermelho aspiradorVirtualVermelho;
 	
-	public AspiradorVermelhoJButton() {
-		this.aspiradorVirtualVermelho = new AspiradorVirtualVermelho();
+	public AspiradorVermelhoJButton(Gerenciador gerenciador) {
+		super(gerenciador, new AspiradorVirtualVermelho());
 		
-		Icone icone = new Icone(this.aspiradorVirtualVermelho.getImagem());
+		Icone icone = new Icone(this.getAspiradorVirtual().getImagem());
 		
 		this.setIcon(icone.getIcon(50, 50));
 		
