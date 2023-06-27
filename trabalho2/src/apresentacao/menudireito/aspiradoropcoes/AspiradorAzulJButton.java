@@ -8,7 +8,7 @@ import controle.aspiradorvirtual.AspiradorVirtualAzul;
 public class AspiradorAzulJButton extends AspiradorJButton {
 
 	public AspiradorAzulJButton(Gerenciador gerenciador) {
-		super(gerenciador, new AspiradorVirtualAzul());
+		super(gerenciador, gerenciador.getAspiradoresVirtuais().get(0));
 		
 		Icone icone = new Icone(this.getAspiradorVirtual().getImagem());
 		

@@ -4,9 +4,13 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import controle.aspiradorvirtual.AspiradorVirtual;
+import controle.aspiradorvirtual.AspiradorVirtualAzul;
+import controle.aspiradorvirtual.AspiradorVirtualPreto;
+import controle.aspiradorvirtual.AspiradorVirtualVermelho;
 import controle.obstaculovirtual.AlunoVirtual;
 import controle.obstaculovirtual.ObstaculoVirtual;
 import controle.obstaculovirtual.PoeiraVirtual;
+
 import controle.tabuleirovirtual.CelulaVirtual;
 import controle.tabuleirovirtual.TabuleiroVirtual;
 
@@ -22,7 +26,13 @@ public final class Gerenciador {
 	
 	public Gerenciador() {
 		this.jogador = null;
+		
 		this.aspiradoresVirtuais = new ArrayList<AspiradorVirtual>();
+		this.aspiradoresVirtuais.add(new AspiradorVirtualAzul());
+		this.aspiradoresVirtuais.add(new AspiradorVirtualPreto());
+		this.aspiradoresVirtuais.add(new AspiradorVirtualVermelho());
+		
+		
 		this.obstaculosVirtuais = new ArrayList<ObstaculoVirtual>();
 		this.AspiradorVirtualSelecionado = null;
 		this.alunosAchados = 0;

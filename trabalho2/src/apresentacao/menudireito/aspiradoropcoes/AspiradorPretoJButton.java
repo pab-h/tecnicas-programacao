@@ -11,7 +11,7 @@ public class AspiradorPretoJButton extends AspiradorJButton {
 	private AspiradorVirtualPreto aspiradorVirtualPreto;
 	
 	public AspiradorPretoJButton(Gerenciador gerenciador) {
-		super(gerenciador, new AspiradorVirtualPreto()); 
+		super(gerenciador, gerenciador.getAspiradoresVirtuais().get(1)); 
 		
 		Icone icone = new Icone(this.getAspiradorVirtual().getImagem());
 		

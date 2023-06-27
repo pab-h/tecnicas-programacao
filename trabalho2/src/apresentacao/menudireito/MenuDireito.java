@@ -9,11 +9,13 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import apresentacao.menudireito.aspiradoropcoes.AspiradoresOpcoes;
+import apresentacao.tabuleiro.Tabuleiro;
+
 import controle.Gerenciador;
 
 public class MenuDireito extends JPanel {
 
-	public MenuDireito(Gerenciador gerenciador) {
+	public MenuDireito(Gerenciador gerenciador, Tabuleiro tabuleiro) {
 		this.setLayout(new GridLayout(6, 1));
 		
 		JLabel pontuacaoLabel = new JLabel("-100", SwingConstants.CENTER);
@@ -24,6 +26,10 @@ public class MenuDireito extends JPanel {
 		this.add(new PlacarEncontrados());
 		
 		JButton proximaRodadaButton = new JButton("Proxima Rodada");
+		proximaRodadaButton.addActionListener(new CliqueEmProximaRodada(
+			gerenciador, 
+			tabuleiro
+		));
 		this.add(proximaRodadaButton);
 		
 		JButton sairButton = new JButton("Sair");

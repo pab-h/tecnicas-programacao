@@ -14,8 +14,9 @@ public class JogoContainer extends JPanel {
 	public JogoContainer(Gerenciador gerenciador) {
 		this.setLayout(new BorderLayout());
 		
-		this.add(new Tabuleiro(gerenciador), BorderLayout.CENTER);
-		this.add(new MenuDireito(gerenciador), BorderLayout.EAST);
+		Tabuleiro tabuleiro = new Tabuleiro(gerenciador);
+		this.add(tabuleiro, BorderLayout.CENTER);
+		this.add(new MenuDireito(gerenciador, tabuleiro), BorderLayout.EAST);
 		
 		this.setVisible(false);
 	}
