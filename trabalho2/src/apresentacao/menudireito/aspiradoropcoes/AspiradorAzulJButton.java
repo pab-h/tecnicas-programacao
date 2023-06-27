@@ -1,4 +1,4 @@
-package apresentacao.menuesquerdo.aspiradoropcoes;
+package apresentacao.menudireito.aspiradoropcoes;
 
 import javax.swing.JButton;
 

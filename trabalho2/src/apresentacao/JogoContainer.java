@@ -5,7 +5,7 @@ import java.awt.BorderLayout;
 
 import javax.swing.JPanel;
 
-import apresentacao.menuesquerdo.MenuEsquerdo;
+import apresentacao.menudireito.MenuDireito;
 import apresentacao.tabuleiro.Tabuleiro;
 import controle.Gerenciador;
 
@@ -15,7 +15,7 @@ public class JogoContainer extends JPanel {
 		this.setLayout(new BorderLayout());
 		
 		this.add(new Tabuleiro(gerenciador), BorderLayout.CENTER);
-		this.add(new MenuEsquerdo(), BorderLayout.EAST);
+		this.add(new MenuDireito(), BorderLayout.EAST);
 		
 		this.setVisible(false);
 	}

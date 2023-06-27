@@ -1,4 +1,4 @@
-package apresentacao.menuesquerdo;
+package apresentacao.menudireito;
 
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -7,11 +7,11 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import apresentacao.menuesquerdo.aspiradoropcoes.AspiradoresOpcoes;
+import apresentacao.menudireito.aspiradoropcoes.AspiradoresOpcoes;
 
-public class MenuEsquerdo extends JPanel {
+public class MenuDireito extends JPanel {
 
-	public MenuEsquerdo() {
+	public MenuDireito() {
 		this.setLayout(new GridLayout(6, 1));
 		
 		JLabel pontuacaoLabel = new JLabel("-100");
