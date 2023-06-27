@@ -12,7 +12,7 @@ public abstract class AspiradorVirtual {
 	private int pontuacao;
 	private int poeirasEncontradas;
 	private int alunosEncontrados;
-	
+	private int celulasVaziasEncontradas;
 	private CelulaVirtual celulaVirtualAtual;
 	
 	public AspiradorVirtual(String imagem, String nome) {
@@ -22,8 +22,13 @@ public abstract class AspiradorVirtual {
 		this.celulaVirtualAtual = null;
 		this.poeirasEncontradas = 0;
 		this.alunosEncontrados = 0;
+		this.celulasVaziasEncontradas = 0;
 	}
 
+	public int getCelulasVaziasEncontradas() {
+		return this.celulasVaziasEncontradas;
+	}
+	
 	public int getPontuacao() {
 		return this.pontuacao;
 	}
@@ -51,22 +56,22 @@ public abstract class AspiradorVirtual {
 			return;
 		}
 		
-		if (!this.celulaVirtualAtual.semObstaculo()) {
-			ObstaculoVirtual obstaculoVirtual = this.celulaVirtualAtual.getObstaculoVirtual();
-			this.setPontuacao(this.getPontuacao() + obstaculoVirtual.getPontuacao());
-			
-			if (obstaculoVirtual instanceof AlunoVirtual) {
-				this.alunosEncontrados++;
-			}
-			
-			if (obstaculoVirtual instanceof PoeiraVirtual) {
-				this.poeirasEncontradas++;
-			}
-			
-		}		
+		if (this.celulaVirtualAtual.semObstaculo()) {
+			this.celulasVaziasEncontradas++;
+			return;
+		}
 		
+		ObstaculoVirtual obstaculoVirtual = this.celulaVirtualAtual.getObstaculoVirtual();
+		this.setPontuacao(this.getPontuacao() + obstaculoVirtual.getPontuacao());
 		
+		if (obstaculoVirtual instanceof AlunoVirtual) {
+			this.alunosEncontrados++;
+		}
 		
+		if (obstaculoVirtual instanceof PoeiraVirtual) {
+			this.poeirasEncontradas++;
+		}
+			
 	}
 
 	public String getImagem() {

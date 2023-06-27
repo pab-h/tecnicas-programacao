@@ -23,6 +23,7 @@ public final class Gerenciador {
 	private TabuleiroVirtual tabuleiroVirtual;
 	private int alunosAchados;
 	private int poeirasAchadas;
+	private int rodadas;
 	
 	public Gerenciador() {
 		this.jogador = null;
@@ -42,6 +43,24 @@ public final class Gerenciador {
 		this.adicionaAlunoVirtualSorteado(10);
 		this.adicionaPoeiraVirtualSorteado(15);
 		
+	}
+
+	public int getTotalCelulasVazias() {
+		int totalCelulasVazias = 0;
+		
+		for(AspiradorVirtual aspiradorVirtual :this.getAspiradoresVirtuais()) {
+			totalCelulasVazias += aspiradorVirtual.getCelulasVaziasEncontradas();
+		}
+		
+		return totalCelulasVazias;
+	}
+	
+	public int getRodadas() {
+		return this.rodadas;
+	}
+
+	public void setRodadas(int rodadas) {
+		this.rodadas = rodadas;
 	}
 
 	public TabuleiroVirtual getTabuleiroVirtual() {
@@ -136,6 +155,36 @@ public final class Gerenciador {
 
 	public ArrayList<ObstaculoVirtual> getObstaculosVirtuais() {
 		return this.obstaculosVirtuais;
+	}
+
+	public int getPontuacaoTotal() {
+		int pontuacaoTotal = 0;
+		
+		for(AspiradorVirtual aspiradorVirtual: this.getAspiradoresVirtuais()) {
+			pontuacaoTotal += aspiradorVirtual.getPontuacao();
+		}
+
+		return pontuacaoTotal;
+	}
+
+	public int getTotalPoeirasEncontradas() {
+		int totalPoeirasEncontradas = 0;
+		
+		for(AspiradorVirtual aspiradorVirtual: this.getAspiradoresVirtuais()) {
+			totalPoeirasEncontradas += aspiradorVirtual.getPoeirasEncontradas();
+		}
+
+		return totalPoeirasEncontradas;
+	}
+
+	public int getTotalAlunosEncontrados() {
+		int totalAlunosEncontrados = 0;
+
+		for(AspiradorVirtual aspiradorVirtual: this.getAspiradoresVirtuais()) {
+			totalAlunosEncontrados += aspiradorVirtual.getAlunosEncontrados();
+		}
+		
+		return totalAlunosEncontrados;
 	}
 	
 	

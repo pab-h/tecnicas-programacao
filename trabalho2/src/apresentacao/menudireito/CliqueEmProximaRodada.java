@@ -84,33 +84,12 @@ public class CliqueEmProximaRodada implements ActionListener {
 	}
 	
 	private void atualizarPontuacao() {
-		int pontuacaoTotal = 0;
-		
-		for(AspiradorVirtual aspiradorVirtual: this.gerenciador.getAspiradoresVirtuais()) {
-			pontuacaoTotal += aspiradorVirtual.getPontuacao();
-		}
-		
-		this.pontuacaoJLabel.setText(""+ pontuacaoTotal + "");
-		
+		this.pontuacaoJLabel.setText("" + this.gerenciador.getPontuacaoTotal() + "");
 	}
 	
 	private void atualizarContagem() {
-		int totalPoeirasEncontradas = 0;
-		
-		for(AspiradorVirtual aspiradorVirtual: this.gerenciador.getAspiradoresVirtuais()) {
-			totalPoeirasEncontradas += aspiradorVirtual.getPoeirasEncontradas();
-		}
-		
-		this.contagem.getPoeirasEncontradasJLabel().setText("" + totalPoeirasEncontradas  + "");
-		
-		int totalAlunosEncontrados = 0;
-
-		for(AspiradorVirtual aspiradorVirtual: this.gerenciador.getAspiradoresVirtuais()) {
-			totalAlunosEncontrados += aspiradorVirtual.getAlunosEncontrados();
-		}
-		
-		this.contagem.getAlunosEncontradosJLabel().setText("" + totalAlunosEncontrados  + "");
-		
+		this.contagem.getPoeirasEncontradasJLabel().setText("" + this.gerenciador.getTotalPoeirasEncontradas() + "");
+		this.contagem.getAlunosEncontradosJLabel().setText("" + this.gerenciador.getTotalAlunosEncontrados()  + "");
 	}
 	
 	public void habilitarBotoesDosAspiradores() {
@@ -134,6 +113,7 @@ public class CliqueEmProximaRodada implements ActionListener {
 		this.atualizarPontuacao();
 		this.atualizarContagem();
 		this.habilitarBotoesDosAspiradores();
+		this.gerenciador.setRodadas(this.gerenciador.getRodadas() + 1);
 	}
 	
 }
