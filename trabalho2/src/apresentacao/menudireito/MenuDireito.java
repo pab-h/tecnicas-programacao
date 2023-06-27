@@ -2,6 +2,8 @@ package apresentacao.menudireito;
 
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -40,6 +42,11 @@ public class MenuDireito extends JPanel {
 		this.add(proximaRodadaButton);
 		
 		JButton sairButton = new JButton("Sair");
+		sairButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(200);
+			}
+		});
 		this.add(sairButton);
 		
 		this.setVisible(true);	
