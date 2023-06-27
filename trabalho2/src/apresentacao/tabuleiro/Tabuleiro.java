@@ -24,7 +24,7 @@ public class Tabuleiro extends JPanel{
 		for(int i = 0; i < tabuleiroVirtual.getLinhas(); i++) {
 			for(int j = 0; j < tabuleiroVirtual.getColunas(); j++) {
 				CelulaVirtual celulaVirtual = tabuleiroVirtual.getCelulaVirtual(i, j);
-				this.add(new Celula(celulaVirtual));
+				this.add(new Celula(gerenciador, celulaVirtual));
 			}
 		}
 		

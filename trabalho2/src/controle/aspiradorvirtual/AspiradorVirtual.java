@@ -1,5 +1,6 @@
 package controle.aspiradorvirtual;
 
+import controle.obstaculovirtual.ObstaculoVirtual;
 import controle.tabuleirovirtual.CelulaVirtual;
 
 public abstract class AspiradorVirtual {
@@ -7,13 +8,13 @@ public abstract class AspiradorVirtual {
 	private String imagem;
 	private String nome;
 	private int pontuacao;
-	private CelulaVirtual CelulaVirtualAtual;
+	private CelulaVirtual celulaVirtualAtual;
 	
 	public AspiradorVirtual(String imagem, String nome) {
 		this.imagem = imagem;
 		this.nome = nome;
 		this.pontuacao = 0;
-		this.CelulaVirtualAtual = null;
+		this.celulaVirtualAtual = null;
 	}
 
 	public int getPontuacao() {
@@ -25,11 +26,22 @@ public abstract class AspiradorVirtual {
 	}
 
 	public CelulaVirtual getCelulaVirtualAtual() {
-		return this.CelulaVirtualAtual;
+		return this.celulaVirtualAtual;
 	}
 
 	public void setCelulaVirtualAtual(CelulaVirtual celulaVirtualAtual) {
-		this.CelulaVirtualAtual = celulaVirtualAtual;
+		this.celulaVirtualAtual = celulaVirtualAtual;
+		
+		if (this.celulaVirtualAtual == null) {
+			return;
+		}
+		
+		if (!this.celulaVirtualAtual.estaVazia()) {
+			ObstaculoVirtual obstaculoVirtual = this.celulaVirtualAtual.getObstaculoVirtual();
+		
+			this.setPontuacao(this.getPontuacao() + obstaculoVirtual.getPontuacao());
+		}		
+		
 	}
 
 	public String getImagem() {
