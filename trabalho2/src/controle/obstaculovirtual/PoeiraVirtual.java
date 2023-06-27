@@ -10,7 +10,7 @@ public class PoeiraVirtual extends ObstaculoVirtual {
 
 	@Override
 	public int getPontuacao() {
-		return 10;
+		return -15;
 	}
 	
 }

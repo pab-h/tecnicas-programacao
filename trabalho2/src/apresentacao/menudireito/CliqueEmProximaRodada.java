@@ -1,7 +1,9 @@
 package apresentacao.menudireito;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.JLabel;
 
@@ -71,9 +73,26 @@ public class CliqueEmProximaRodada implements ActionListener {
 		}
 	}
 	
+	public void marcarCelulaComObstaculosNosAspiradores() {
+		for(AspiradorVirtual aspiradorVirtual: this.gerenciador.getAspiradoresVirtuais()) {
+			CelulaVirtual celulaVirutal = aspiradorVirtual.getCelulaVirtualAtual();
+			
+			Celula celula = this.tabuleiro.getCelula(
+				celulaVirutal.getLinha(), 
+				celulaVirutal.getColuna()
+			);
+
+			celula.setBackground(Color.PINK);
+			celula.removeActionListener(celula.getActionListeners()[0]);
+				
+		}
+	}
+	
+	
 	public void actionPerformed(ActionEvent e) {
 		this.apagarIconesDosAspiradores();
 		this.mostrarIconesObstaculosNosAspiradores();
+		this.marcarCelulaComObstaculosNosAspiradores();
 		this.atualizarPontuacao();
 	}
 	
