@@ -8,8 +8,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import apresentacao.JogoContainer;
-import apresentacao.menutopo.evento.Jogar;
-
 import controle.Gerenciador;
 
 public class MenuTopo extends JPanel {

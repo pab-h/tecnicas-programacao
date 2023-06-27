@@ -1,4 +1,4 @@
-package apresentacao.menutopo.evento;
+package apresentacao.menutopo;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
