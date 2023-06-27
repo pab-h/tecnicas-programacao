@@ -10,13 +10,13 @@ import apresentacao.JogoContainer;
 import controle.Gerenciador;
 import controle.Jogador;
 
-public class Jogar implements ActionListener {
+public class CliqueEmJogar implements ActionListener {
 
 	private Gerenciador gerenciador;
 	private JTextField nomeField;
 	private JogoContainer jogoContainer;
 	
-	public Jogar(Gerenciador gerenciador, JTextField nomeField, JogoContainer jogoContainer) {
+	public CliqueEmJogar(Gerenciador gerenciador, JTextField nomeField, JogoContainer jogoContainer) {
 		this.gerenciador = gerenciador;
 		this.nomeField = nomeField;
 		this.jogoContainer = jogoContainer;
