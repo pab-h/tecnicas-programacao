@@ -42,11 +42,7 @@ public class MenuDireito extends JPanel {
 		this.add(proximaRodadaButton);
 		
 		JButton sairButton = new JButton("Sair");
-		sairButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.exit(200);
-			}
-		});
+		sairButton.addActionListener(new Sair(gerenciador));
 		this.add(sairButton);
 		
 		this.setVisible(true);	

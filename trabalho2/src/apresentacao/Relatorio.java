@@ -18,8 +18,6 @@ public class Relatorio extends JPanel {
 		
 		RelatorioVirtual relatorioVirtual = new RelatorioVirtual();
 
-		relatorioVirtual.atualizar(gerenciador);
-		
 		ArrayList<String[]> dados = relatorioVirtual.getDados();
 		
 		String[] campos = relatorioVirtual.getCampos();
