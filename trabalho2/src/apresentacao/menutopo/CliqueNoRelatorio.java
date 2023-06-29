@@ -19,6 +19,7 @@ public class CliqueNoRelatorio implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
 		this.jogoContainer.setConteudoRelatorio();
+		this.jogoContainer.setVisible(true);
 	}
 	
 }

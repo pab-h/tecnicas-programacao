@@ -45,6 +45,10 @@ public class RelatorioVirtual {
 	}
 	
 	public void atualizar(Gerenciador gerenciador) {
+		if (gerenciador.getJogador() == null) {
+			return;
+		}
+		
 		RelatorioVirtualDAO relatorioVirtualDAO = new RelatorioVirtualDAO();
 		relatorioVirtualDAO.atualizar(gerenciador);
 	}
