@@ -1,25 +1,28 @@
 package apresentacao.menutopo;
 
-import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
-import apresentacao.JogoContainer;
 import apresentacao.Relatorio;
+import controle.Gerenciador;
 
 public class CliqueNoRelatorio implements ActionListener {
 
-	private JogoContainer jogoContainer;
+	private Gerenciador gerenciador;
 	
-	public CliqueNoRelatorio(JogoContainer jogoContainer) {
-		this.jogoContainer = jogoContainer;
+	public CliqueNoRelatorio(Gerenciador gerenciador) {
+		this.gerenciador = gerenciador;
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		this.jogoContainer.setConteudoRelatorio();
-		this.jogoContainer.setVisible(true);
+		JOptionPane.showMessageDialog(
+			null, 
+			new Relatorio(this.gerenciador), 
+			"Relatorio", 
+			JOptionPane.PLAIN_MESSAGE
+		);
 	}
 	
 }

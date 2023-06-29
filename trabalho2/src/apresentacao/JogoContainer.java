@@ -27,11 +27,4 @@ public class JogoContainer extends JPanel {
 		this.setVisible(false);
 	}
 	
-	public void setConteudoRelatorio() {
-		this.removeAll();
-		this.add(new Relatorio(this.gerenciador), BorderLayout.CENTER);
-		this.repaint();
-		this.revalidate();
-	}
-	
 }

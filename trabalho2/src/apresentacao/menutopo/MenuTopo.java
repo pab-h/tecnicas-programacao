@@ -23,7 +23,7 @@ public class MenuTopo extends JPanel {
 		jogarButton.addActionListener(new CliqueEmJogar(gerenciador, nomeField, jogoContainer));
 		
 		JButton relatorioButton = new JButton("Relatorio do Jogo");
-		relatorioButton.addActionListener(new CliqueNoRelatorio(jogoContainer));
+		relatorioButton.addActionListener(new CliqueNoRelatorio(gerenciador));
 		
 		this.add(nomeLabel);
 		this.add(nomeField);
