@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import apresentacao.Icone;
 import apresentacao.menudireito.aspiradoropcoes.AspiradorJButton;
@@ -107,6 +108,16 @@ public class CliqueEmProximaRodada implements ActionListener {
 	}
 	
 	public void actionPerformed(ActionEvent e) {
+		if (!this.gerenciador.todosAspiradoresPosicionados()) {
+			JOptionPane.showMessageDialog(
+				null, 
+				"Todos os aspiradores precisam estar posicionados", 
+				"Error", 
+				JOptionPane.ERROR_MESSAGE
+			);
+			return; 
+		}
+		
 		this.apagarIconesDosAspiradores();
 		this.mostrarIconesObstaculosNosAspiradores();
 		this.marcarCelulaComObstaculosNosAspiradores();

@@ -45,6 +45,16 @@ public final class Gerenciador {
 		
 	}
 
+	public boolean todosAspiradoresPosicionados() {
+		for (AspiradorVirtual aspirador : this.getAspiradoresVirtuais()) {
+			if (aspirador.getCelulaVirtualAtual() == null) {
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	
 	public int getTotalCelulasVazias() {
 		int totalCelulasVazias = 0;
 		
